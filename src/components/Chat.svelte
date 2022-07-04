@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   import User from "./User.svelte";
   import Message from "./Message.svelte";
 
@@ -7,6 +9,11 @@
   export let sendMessage;
 
   let message = "";
+  let inputEl;
+
+  onMount(() => {
+    inputEl.focus();
+  });
 
   function handleSubmit() {
     if (message.length > 0) {
@@ -38,6 +45,7 @@
       <input
         type="text"
         bind:value={message}
+        bind:this={inputEl}
         placeholder="message..."
       />
       <button type="submit" disabled={message.length === 0}>Send</button>

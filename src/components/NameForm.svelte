@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   export let sendName;
 
   let name = "";
@@ -6,6 +8,12 @@
   const handleSubmit = () => {
     sendName(name);
   };
+
+  let elm;
+
+  onMount(() => {
+    elm.focus();
+  });
 </script>
 
 <div class="form-container">
@@ -13,6 +21,7 @@
     <input
       type="text"
       bind:value={name}
+      bind:this={elm}
       placeholder="Your name..."
     />
     <button type="submit" disabled={name.length === 0}>Send</button>
