@@ -11,4 +11,22 @@
   </div>
 </div>
 
-<style></style>
+<style>
+  .message-container {
+    display: flex;
+    padding: 10px 0;
+  }
+
+  .message {
+    background: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+  }
+
+  .author {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+</style>
