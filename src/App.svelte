@@ -1,10 +1,15 @@
 <script>
-  import "./store.js";
+  import { users, messages, nameSubmitted, sendMessage } from "./store.js";
   import NameForm from "./components/NameForm.svelte";
+  import Chat from "./components/Chat.svelte";
 </script>
 
 <main>
-  <NameForm />
+  {#if !$nameSubmitted}
+    <NameForm sendName={sendMessage} />
+  {:else}
+    <Chat messages={$messages} users={$users} {sendMessage} />
+  {/if}
 </main>
 
 <style>

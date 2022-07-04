@@ -1,9 +1,21 @@
-<script></script>
+<script>
+  export let sendName;
+
+  let name = "";
+
+  const handleSubmit = () => {
+    sendName(name);
+  };
+</script>
 
 <div class="form-container">
-  <form class="form">
-    <input type="text" placeholder="Your name..." />
-    <button type="submit">Send</button>
+  <form class="form" on:submit|preventDefault={handleSubmit}>
+    <input
+      type="text"
+      bind:value={name}
+      placeholder="Your name..."
+    />
+    <button type="submit" disabled={name.length === 0}>Send</button>
   </form>
 </div>
 

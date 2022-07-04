@@ -1,12 +1,31 @@
-<script></script>
+<script>
+  import { format } from "date-fns";
 
-<div class="message-container">
+  export let text;
+  export let author;
+  export let time;
+  export let isYou = false;
+</script>
+
+<div
+  class="message-container"
+  style:flex-direction={isYou ? "row" : "row-reverse"}
+  style:text-align={isYou ? "left" : "right"}
+  style:padding-right={isYou ? "100px" : "0"}
+  style:padding-left={isYou ? "0" : "100px"}
+>
   <div>
-    <div class="message">
-      Hello there!
+    <div
+      class="message"
+      style:border-bottom-right-radius={isYou ? "8px" : "2px"}
+      style:border-bottom-left-radius={isYou ? "2px" : "8px"}
+    >
+      {text}
     </div>
-    <div class="author">
-      Author - 16:30
+    <div
+      class="author"
+    >
+      {author} - {format(new Date(time), "HH:mm")}
     </div>
   </div>
 </div>
