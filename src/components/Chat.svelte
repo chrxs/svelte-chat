@@ -38,6 +38,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>{`Chat (${messages.length})`}</title>
+</svelte:head>
+
 <div class="users-container">
   <div class="users">
     {#each users as { uid, ...user }}
