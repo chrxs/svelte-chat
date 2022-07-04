@@ -1,6 +1,11 @@
+# Svelte Chat App
+
+## 9 Animate message in
+`src/components/Message.svelte`
+```
 <script>
-  import { scale, fade } from "svelte/transition";
-  import { elasticOut } from "svelte/easing";
+  import { scale, fade } from "svelte/transition"; // (1)
+  import { elasticOut } from "svelte/easing"; // (2)
   import { format } from "date-fns";
 
   export let text;
@@ -21,7 +26,7 @@
       class="message"
       style:border-bottom-right-radius={isYou ? "8px" : "2px"}
       style:border-bottom-left-radius={isYou ? "2px" : "8px"}
-      transition:scale|local={{
+      transition:scale|local={{ // (3)
         duration: 500,
         delay: 200,
         opacity: 0,
@@ -33,7 +38,7 @@
     </div>
     <div
       class="author"
-      transition:fade|local={{
+      transition:fade|local={{ // (4)
         duration: 200,
         delay: 300,
       }}
@@ -42,23 +47,4 @@
     </div>
   </div>
 </div>
-
-<style>
-  .message-container {
-    display: flex;
-    padding: 10px 0;
-  }
-
-  .message {
-    background: #fff;
-    color: #000;
-    padding: 10px 20px;
-    border-radius: 8px;
-  }
-
-  .author {
-    color: #fff;
-    font-size: 12px;
-    margin-top: 10px;
-  }
-</style>
+```
