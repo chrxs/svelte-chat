@@ -1,4 +1,5 @@
 <script>
+  import "./store.js";
   import NameForm from "./components/NameForm.svelte";
 </script>
 
